@@ -1,0 +1,2 @@
+module LuminositiesHelper
+end

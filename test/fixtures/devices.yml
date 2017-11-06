@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device_name: MyString
+  temp: 
+  audio: 
+  humidity: 
+  luminosity: 
+
+two:
+  device_name: MyString
+  temp: 
+  audio: 
+  humidity: 
+  luminosity: 

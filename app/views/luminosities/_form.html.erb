@@ -1,0 +1,22 @@
+<%= form_with(model: luminosity, local: true) do |form| %>
+  <% if luminosity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(luminosity.errors.count, "error") %> prohibited this luminosity from being saved:</h2>
+
+      <ul>
+      <% luminosity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value, id: :luminosity_value %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
