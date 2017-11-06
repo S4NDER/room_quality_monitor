@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   resources :humidities
   resources :temperatures
   resources :audios
+  
   get 'static_pages/home'
+  get 'control', to: 'static_pages#control'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
+
 end
