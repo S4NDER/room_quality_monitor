@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Audio:</strong>
+  <%= @device.audio %>
+</p>
+
+<p>
+  <strong>Humidity:</strong>
+  <%= @device.humidity %>
+</p>
+
+<p>
+  <strong>Luminosity:</strong>
+  <%= @device.luminosity %>
+</p>
+
+<p>
+  <strong>Temperature:</strong>
+  <%= @device.temperature %>
+</p>
+
+<%= link_to 'Edit', edit_device_path(@device) %> |
+<%= link_to 'Back', devices_path %>
