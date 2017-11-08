@@ -4,6 +4,6 @@
 <% else %>
 <h1>Profile</h1>
 <h3><%= current_user[:name] %> </h3>
-<%= image_tag current_user.image %>
+<%= image_tag(current_user.image,  :width => 40, :height => 40) %> 
 Email: <%= current_user[:email] %></br>
 <% end %>
