@@ -2,6 +2,8 @@ class StaticPagesController < ApplicationController
     def home
     end
 
-    def control 
+    def login 
     end
+
+    
 end

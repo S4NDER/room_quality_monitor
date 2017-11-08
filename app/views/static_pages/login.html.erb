@@ -1,0 +1,9 @@
+<% unless current_user %>
+<h1>Login</h1>
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+
+<% else %>
+<h1>Profile</h1>
+Name: <%= current_user[:name] %> </br>
+Email: <%= current_user[:email] %></br>
+<% end %>
