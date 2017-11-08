@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   get '/profile' => 'static_pages#profile', :as => 'profile'
+  get '/control' => 'static_pages#control', :as => 'control'
 
 end
 
