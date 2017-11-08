@@ -3,9 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :omniauthable, :omniauth_providers => [:google_oauth2, :facebook]
 
-         def self.new_with_session(params, session)
+        
+        def self.new_with_session(params, session)
           super.tap do |user|
             if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
               user.email = data["email"] if user.email.blank?
@@ -20,5 +21,5 @@ class User < ApplicationRecord
             user.name = auth.info.name   # assuming the user model has a name
             user.image = auth.info.image # assuming the user model has an image
           end
-        end     
+        end   
 end
