@@ -60,6 +60,7 @@ gem 'devise'
 gem 'omniauth-facebook' 
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-google-oauth2'
-gem "omniauth-github"
+gem 'omniauth-github'
+gem 'omniauth-twitter'
 
 
