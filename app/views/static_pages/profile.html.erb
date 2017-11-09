@@ -1,0 +1,12 @@
+<% unless current_user %>
+<h1>ERROR 123</h1>
+
+<% else %>
+<h1>Profile</h1>
+<h3><%= current_user[:name] %> </h3>
+<%= image_tag(current_user.image,  :width => 40, :height => 40) %> 
+Email: <%= current_user[:email] %></br>
+
+
+
+<% end %>

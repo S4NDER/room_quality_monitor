@@ -1,0 +1,15 @@
+<h1>Control Page</h1>
+
+<h3>Devices</h3>
+<% @count = 0 %>
+<% Device.all.each do |device| %>
+
+<b>Device <%= @count += 1 %>:</b></br>
+Audio: <%=device.audio.value %> dB </br>
+Temperature: <%=device.temperature.value %> °C </br>
+Luminosity: <%=device.luminosity.value %> lux </br>
+Humidity: <%=device.humidity.value %> % </br>
+<hr>
+
+<% end %>
+<%= button_to "GENERATE FAKE DATA", fakes_path, :id => "open-contacts-dialog-btn", :class => "inbox-sf-add-btn tip", :method => :post %>

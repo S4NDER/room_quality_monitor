@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fakes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fakes.each do |fake| %>
+      <tr>
+        <td><%= link_to 'Show', fake %></td>
+        <td><%= link_to 'Edit', edit_fake_path(fake) %></td>
+        <td><%= link_to 'Destroy', fake, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fake', new_fake_path %>

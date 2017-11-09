@@ -17,7 +17,11 @@ class DevicesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create device" do
     assert_difference('Device.count') do
+<<<<<<< HEAD
       post devices_url, params: { device: { audio: @device.audio, device_name: @device.device_name, humidity: @device.humidity, luminosity: @device.luminosity, temp: @device.temp } }
+=======
+      post devices_url, params: { device: { audio_id: @device.audio_id, humidity_id: @device.humidity_id, luminosity_id: @device.luminosity_id, temperature_id: @device.temperature_id } }
+>>>>>>> ddea7d137107c64b126df3195f9f214696888600
     end
 
     assert_redirected_to device_url(Device.last)
@@ -34,7 +38,11 @@ class DevicesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update device" do
+<<<<<<< HEAD
     patch device_url(@device), params: { device: { audio: @device.audio, device_name: @device.device_name, humidity: @device.humidity, luminosity: @device.luminosity, temp: @device.temp } }
+=======
+    patch device_url(@device), params: { device: { audio_id: @device.audio_id, humidity_id: @device.humidity_id, luminosity_id: @device.luminosity_id, temperature_id: @device.temperature_id } }
+>>>>>>> ddea7d137107c64b126df3195f9f214696888600
     assert_redirected_to device_url(@device)
   end
 

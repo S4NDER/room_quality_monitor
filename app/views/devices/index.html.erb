@@ -5,11 +5,18 @@
 <table>
   <thead>
     <tr>
+<<<<<<< HEAD
       <th>Device name</th>
       <th>Temp</th>
       <th>Audio</th>
       <th>Humidity</th>
       <th>Luminosity</th>
+=======
+      <th>Audio</th>
+      <th>Humidity</th>
+      <th>Luminosity</th>
+      <th>Temperature</th>
+>>>>>>> ddea7d137107c64b126df3195f9f214696888600
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,11 +24,18 @@
   <tbody>
     <% @devices.each do |device| %>
       <tr>
+<<<<<<< HEAD
         <td><%= device.device_name %></td>
         <td><%= device.temp %></td>
         <td><%= device.audio %></td>
         <td><%= device.humidity %></td>
         <td><%= device.luminosity %></td>
+=======
+        <td><%= device.audio %></td>
+        <td><%= device.humidity %></td>
+        <td><%= device.luminosity %></td>
+        <td><%= device.temperature %></td>
+>>>>>>> ddea7d137107c64b126df3195f9f214696888600
         <td><%= link_to 'Show', device %></td>
         <td><%= link_to 'Edit', edit_device_path(device) %></td>
         <td><%= link_to 'Destroy', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
