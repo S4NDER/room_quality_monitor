@@ -7,7 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         if @user.persisted?
           sign_in_and_redirect @user, event: :authentication
         else
-          session['devise.google_data'] = request.env['omniauth.auth'].except(:extra) 
+          session['devise.google_oauth2_data'] = request.env['omniauth.auth'].except(:extra) 
           flash[:error] = 'There was a problem signing you in through Google. Please register or try signing in later.'
           redirect_to new_user_registration_url
         end
