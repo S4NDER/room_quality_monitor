@@ -1,6 +1,9 @@
 require_relative 'boot'
 
 require 'rails/all'
+if Rails.env.development?
+  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+end
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
