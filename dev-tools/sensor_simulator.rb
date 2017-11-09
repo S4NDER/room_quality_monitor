@@ -60,6 +60,10 @@ class Sensor_Simulator
         sleep $send_interval
     end
 
+    def get_random_device_name
+        return "simulator_#{rand(0..20)}"
+    end
+
     def get_random_hash_for_json
         random_hash = rand(0..15)
         puts "possible json n° #{random_hash}"
@@ -67,92 +71,92 @@ class Sensor_Simulator
         when 0
             @hash = {
                     "audio_level" => get_random_dB,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 1
             @hash = {
                     "temp_raw"  => get_random_temperature,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 2
             @hash = {
                     "humidity"  => get_random_humidity,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 3
             @hash = {
                     "luminosity"  => get_random_luminosity,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 4
             @hash = {
                     "audio_level" => get_random_dB,
                     "temp_raw"  => get_random_temperature,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 5
             @hash = {
                     "audio_level" => get_random_dB,
                     "humidity"  => get_random_humidity,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 6
             @hash = {
                     "audio_level" => get_random_dB,
                     "luminosity"  => get_random_luminosity,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 7
             @hash = {
                     "temp_raw"  => get_random_temperature,
                     "humidity"  => get_random_humidity,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 8
             @hash = {
                     "temp_raw"  => get_random_temperature,
                     "luminosity"  => get_random_luminosity,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 9
             @hash = {
                     "humidity"  => get_random_humidity,
                     "luminosity"  => get_random_luminosity,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 10
             @hash = {
                     "audio_level" => get_random_dB,
                     "humidity"  => get_random_humidity,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 11
             @hash = {
                     "audio_level" => get_random_dB,
                     "temp_raw"  => get_random_temperature,
                     "humidity"  => get_random_humidity,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 12
             @hash = {
                     "audio_level" => get_random_dB,
                     "temp_raw"  => get_random_temperature,
                     "luminosity"  => get_random_luminosity,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 13
             @hash = {
                     "audio_level" => get_random_dB,
                     "humidity"  => get_random_humidity,
                     "luminosity"  => get_random_luminosity,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 14
             @hash = {
                     "temp_raw"  => get_random_temperature,
                     "humidity"  => get_random_humidity,
                     "luminosity"  => get_random_luminosity,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         when 15
             @hash = {
@@ -160,7 +164,7 @@ class Sensor_Simulator
                     "temp_raw"  => get_random_temperature,
                     "humidity"  => get_random_humidity,
                     "luminosity"  => get_random_luminosity,
-                    "device_name" => "simulator"
+                    "device_name" => get_random_device_name
                 }
         end
     end
