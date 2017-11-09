@@ -13,12 +13,29 @@
  *= require_tree .
  *= require_self
  */
+ @import "materialize/components/color";
+ $primary-color: color("light-blue", "darken-1") !default;
 
  @import 'materialize';
 
- .footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.header{
+  .nav-items{
+    padding-top: 8%;
+    
+    a:visited{
+      color: white;
+    }
+
   }
+}
+
+nav ul a {
+  font-size: 1.3rem;
+}
