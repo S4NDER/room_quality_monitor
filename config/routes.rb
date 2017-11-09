@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :humidities
   resources :temperatures
   resources :audios
+  resources :fakes
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
