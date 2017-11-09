@@ -1,20 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-<<<<<<< HEAD
-  device_name: MyString
-  temp: 
-  audio: 
-  humidity: 
-  luminosity: 
-
-two:
-  device_name: MyString
-  temp: 
-  audio: 
-  humidity: 
-  luminosity: 
-=======
   audio: one
   humidity: one
   luminosity: one
@@ -25,4 +11,3 @@ two:
   humidity: two
   luminosity: two
   temperature: two
->>>>>>> ddea7d137107c64b126df3195f9f214696888600
