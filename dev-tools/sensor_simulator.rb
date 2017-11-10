@@ -19,18 +19,19 @@ $float_accuracy = 2
 $float_factor_min = 1.1
 $float_factor_max = 1.5
 
+$mqtt_client = MQTT::Client.connect('mqtt.labict.be')
+$sensor_topic = 'IoTdevices/RoomMonitor'
+
 class Sensor_Simulator
 
     attr_accessor :hash
 
     def send_to_mqtt
-        sensor_topic = 'IoTdevices/RoomMonitor'
-        client = MQTT::Client.connect('mqtt.labict.be')
         get_random_hash_for_json
         payload = JSON.generate(@hash)
         puts "#{payload}"
         puts "\n"
-        client.publish('IoTdevices/RoomMonitor', payload, retain=false)
+        $mqtt_client.publish($sensor_topic, payload, retain=false)
     end
 
     def run_simulator
