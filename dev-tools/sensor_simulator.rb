@@ -19,6 +19,8 @@ $float_accuracy = 2
 $float_factor_min = 1.1
 $float_factor_max = 1.5
 
+$device_count = 3
+
 $mqtt_client = MQTT::Client.connect('mqtt.labict.be')
 $sensor_topic = 'IoTdevices/RoomMonitor'
 
@@ -62,7 +64,7 @@ class Sensor_Simulator
     end
 
     def get_random_device_name
-        return "simulator_#{rand(0..20)}"
+        return "simulator_#{rand(0..$device_count)}"
     end
 
     def get_random_hash_for_json
