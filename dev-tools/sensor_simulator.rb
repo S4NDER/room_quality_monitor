@@ -38,8 +38,24 @@ class Sensor_Simulator
 
     def run_simulator
         while true
-            send_to_mqtt
-            wait_x_seconds
+            begin
+                send_to_mqtt
+                begin
+                    wait_x_seconds
+                rescue
+                    puts "Something went wrong while waiting"
+                    puts "Trying to restart simulator"
+                ensure
+                    run_simulator
+                end
+            rescue MQTT::ProtocolException
+                puts "Something went wrong with MQTT"
+                puts "Trying to restart simulator"
+            ensure
+                run_simulator
+            end
+
+
         end
     end
 
@@ -73,8 +89,8 @@ class Sensor_Simulator
 
         hash =  {}
 
-        hash["audio_level"] = get_random_dB if (random_value / 1) % 2 == 0 
-        hash["temp_raw"] = get_random_temperature if (random_value / 2) % 2 == 0 
+        hash["audio_level"] = get_random_dB if (random_value / 1) % 2 == 0
+        hash["temp_raw"] = get_random_temperature if (random_value / 2) % 2 == 0
         hash["humidity"] = get_random_humidity if (random_value / 4) % 2 == 0
         hash["luminosity"] = get_random_luminosity if (random_value / 8) % 2 == 0
         hash["device_name"] = get_random_device_name
@@ -83,7 +99,7 @@ class Sensor_Simulator
     end
 end
 puts "Sensor topic: 'IoTdevices/RoomMonitor'"
-puts "MQTT service: 'mqtt.labict.be'"
+puts "MQTT broker: 'mqtt.labict.be'"
+puts "Simulator can be ended by pressing Ctrl+Pause/Break"
 sensor_simulator = Sensor_Simulator.new
 sensor_simulator.run_simulator
-                
