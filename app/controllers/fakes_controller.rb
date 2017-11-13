@@ -7,7 +7,8 @@ class FakesController < ApplicationController
         @device = Device.new({"audio"       => @audio,
                               "temperature" => @temperature,
                               "luminosity"  => @luminosity,
-                              "humidity"    => @humidity})
+                              "humidity"    => @humidity,
+                              "device_name" => "simulator_100"})
     
         if @device.save
           flash[:success] = "Insert device was ok"

@@ -4,11 +4,11 @@
 <% @count = 0 %>
 <% Device.all.each do |device| %>
 
-<b>Device <%= @count += 1 %>:</b></br>
+<b>Device <%=device.device_name %>:</b></br>
 Audio: <%=device.audio.value %> dB </br>
 Temperature: <%=device.temperature.value %> °C </br>
 Luminosity: <%=device.luminosity.value %> lux </br>
-Humidity: <%=device.humidity.value %> % </br>
+Humidity: <%=device.humidity.last.value %> % </br>
 <hr>
 
 <% end %>

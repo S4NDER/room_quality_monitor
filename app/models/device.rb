@@ -1,6 +1,6 @@
 class Device < ApplicationRecord
-  belongs_to :audio
-  belongs_to :humidity
-  belongs_to :luminosity
-  belongs_to :temperature
+  has_many :audio
+  has_many :humidity
+  has_many :luminosity
+  has_many :temperature
 end

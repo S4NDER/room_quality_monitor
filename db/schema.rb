@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20171109090323) do
 
   create_table "audios", force: :cascade do |t|
     t.float "value"
+    t.string "device_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(version: 20171109090323) do
     t.integer "humidity_id"
     t.integer "luminosity_id"
     t.integer "temperature_id"
+    t.string "device_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["audio_id"], name: "index_devices_on_audio_id"
@@ -38,12 +40,14 @@ ActiveRecord::Schema.define(version: 20171109090323) do
 
   create_table "humidities", force: :cascade do |t|
     t.float "value"
+    t.string "device_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "luminosities", force: :cascade do |t|
     t.float "value"
+    t.string "device_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,12 +61,14 @@ ActiveRecord::Schema.define(version: 20171109090323) do
 
   create_table "temperatures", force: :cascade do |t|
     t.float "value"
+    t.string "device_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "tempertures", force: :cascade do |t|
     t.float "value"
+    t.string "device_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

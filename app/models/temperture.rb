@@ -1,2 +1,0 @@
-class Temperture < ApplicationRecord
-end
