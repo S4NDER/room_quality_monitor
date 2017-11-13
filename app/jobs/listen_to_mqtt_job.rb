@@ -16,9 +16,12 @@ class ListenToMqttJob < ApplicationJob
     end
 
     def mbed_info_db(message)
-      Device.find_or_create_by(device_name: message['device_name'])
-      if message['device_name'] != null
-      end
+      device = Device.find_or_create_by(device_name: message['device_name'])
+      device.audios.create(:value => message['audio_level'])  if message['audio_level']
+      device.humidities.create(:value => message['humidity'])  if message['humidity']
+      device.luminosities.create(:value => message['luminosity'])  if message['luminosity']
+      device.temperatures.create(:value => message['temp_raw'])  if message['temp_raw'] 
+      
       
     end
 

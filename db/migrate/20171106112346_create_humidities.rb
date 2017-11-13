@@ -3,7 +3,7 @@ class CreateHumidities < ActiveRecord::Migration[5.1]
     create_table :humidities do |t|
       t.float :value
 
-      t.string :device_id, foreign_key: true
+      t.integer :device_id, foreign_key: true
 
       t.timestamps
     end

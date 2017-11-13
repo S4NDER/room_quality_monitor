@@ -8,16 +8,12 @@
                 <div class="card-panel teal">
                     <span class="white-text">
             <b><%=device.device_name %></b></br>
-            Audio: <%=device.audio.values %> dB </br>
-            Temperature: <%=device.temperature.values %> °C </br>
-            Luminosity: <%=device.luminosity.values %> lux </br>
-            Humidity: <%=device.humidity.values %> % </br>
+            Audio: <%=device.audios.last.value %> dB              (<%=device.audios.last.updated_at.strftime("%H:%M:%S")%>)</br>        
+            Temperature: <%=device.temperatures.last.value %> °C  (<%=device.temperatures.last.updated_at.strftime("%H:%M:%S")%>)</br>
+            Luminosity:  <%=device.luminosities.last.value %> lux (<%=device.luminosities.last.updated_at.strftime("%H:%M:%S")%>)</br>
+            Humidity:    <%=device.humidities.last.value %> %     (<%=device.humidities.last.updated_at.strftime("%H:%M:%S")%>)</br>
             </span>
                 </div>
             </div>
         </div>
-
-
-
-
         <% end %>
