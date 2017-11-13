@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109090323) do
+ActiveRecord::Schema.define(version: 20171107194915) do
 
   create_table "audios", force: :cascade do |t|
     t.float "value"
@@ -31,11 +31,6 @@ ActiveRecord::Schema.define(version: 20171109090323) do
     t.index ["humidity_id"], name: "index_devices_on_humidity_id"
     t.index ["luminosity_id"], name: "index_devices_on_luminosity_id"
     t.index ["temperature_id"], name: "index_devices_on_temperature_id"
-  end
-
-  create_table "fakes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "humidities", force: :cascade do |t|
