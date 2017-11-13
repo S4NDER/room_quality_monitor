@@ -2,16 +2,25 @@
 
 <h3>Devices</h3>
 <% @count = 0 %>
-<% Device.all.each do |device| %>
+    <% Device.all.each do |device| %>
 
-<b>Device <%=device.device_name %>:</b></br>
-Audio: <%=device.audio.value %> dB </br>
-Temperature: <%=device.temperature.value %> °C </br>
-Luminosity: <%=device.luminosity.value %> lux </br>
-Humidity: <%=device.humidity.last.value %> % </br>
-<hr>
+        <div class="row">
+            <div class="col s12 m5">
+                <div class="card-panel teal">
+                    <span class="white-text">
+            <b>Device <%= @count += 1 %>:</b></br>
+            Audio: <%=device.audio.value %> dB </br>
+            Temperature: <%=device.temperature.value %> °C </br>
+            Luminosity: <%=device.luminosity.value %> lux </br>
+            Humidity: <%=device.humidity.value %> % </br>
+            </span>
+                </div>
+            </div>
+        </div>
 
-<% end %>
 
-<%= button_to "GENERATE FAKE DATA", fakes_path, :id => "open-contacts-dialog-btn", :class => "waves-effect waves-light btn", :method => :post %>
 
+
+        <% end %>
+
+            <%= button_to "GENERATE FAKE DATA", fakes_path, :id => "open-contacts-dialog-btn", :class => "waves-effect waves-light btn", :method => :post %>

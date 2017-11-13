@@ -19,25 +19,43 @@ $float_accuracy = 2
 $float_factor_min = 1.1
 $float_factor_max = 1.5
 
+$device_count = 3
+
 $mqtt_client = MQTT::Client.connect('mqtt.labict.be')
 $sensor_topic = 'IoTdevices/RoomMonitor'
 
 class Sensor_Simulator
 
-    attr_accessor :hash
+    attr_accessor:hash
 
     def send_to_mqtt
         get_random_hash_for_json
-        payload = JSON.generate(@hash)
+        payload = JSON.generate(get_random_hash_for_json)
         puts "#{payload}"
         puts "\n"
-        $mqtt_client.publish($sensor_topic, payload, retain=false)
+        $mqtt_client.publish($sensor_topic, payload, retain = false)
     end
 
     def run_simulator
         while true
-            send_to_mqtt
-            wait_x_seconds
+            begin
+                send_to_mqtt
+                begin
+                    wait_x_seconds
+                rescue
+                    puts "Something went wrong while waiting"
+                    puts "Trying to restart simulator"
+                ensure
+                    run_simulator
+                end
+            rescue MQTT::ProtocolException
+                puts "Something went wrong with MQTT"
+                puts "Trying to restart simulator"
+            ensure
+                run_simulator
+            end
+
+
         end
     end
 
@@ -62,115 +80,26 @@ class Sensor_Simulator
     end
 
     def get_random_device_name
-        return "simulator_#{rand(0..20)}"
+        return "simulator_#{rand(0..$device_count)}"
     end
 
     def get_random_hash_for_json
-        random_hash = rand(0..15)
-        puts "possible json n° #{random_hash}"
-        case random_hash
-        when 0
-            @hash = {
-                    "audio_level" => get_random_dB,
-                    "device_name" => get_random_device_name
-                }
-        when 1
-            @hash = {
-                    "temp_raw"  => get_random_temperature,
-                    "device_name" => get_random_device_name
-                }
-        when 2
-            @hash = {
-                    "humidity"  => get_random_humidity,
-                    "device_name" => get_random_device_name
-                }
-        when 3
-            @hash = {
-                    "luminosity"  => get_random_luminosity,
-                    "device_name" => get_random_device_name
-                }
-        when 4
-            @hash = {
-                    "audio_level" => get_random_dB,
-                    "temp_raw"  => get_random_temperature,
-                    "device_name" => get_random_device_name
-                }
-        when 5
-            @hash = {
-                    "audio_level" => get_random_dB,
-                    "humidity"  => get_random_humidity,
-                    "device_name" => get_random_device_name
-                }
-        when 6
-            @hash = {
-                    "audio_level" => get_random_dB,
-                    "luminosity"  => get_random_luminosity,
-                    "device_name" => get_random_device_name
-                }
-        when 7
-            @hash = {
-                    "temp_raw"  => get_random_temperature,
-                    "humidity"  => get_random_humidity,
-                    "device_name" => get_random_device_name
-                }
-        when 8
-            @hash = {
-                    "temp_raw"  => get_random_temperature,
-                    "luminosity"  => get_random_luminosity,
-                    "device_name" => get_random_device_name
-                }
-        when 9
-            @hash = {
-                    "humidity"  => get_random_humidity,
-                    "luminosity"  => get_random_luminosity,
-                    "device_name" => get_random_device_name
-                }
-        when 10
-            @hash = {
-                    "audio_level" => get_random_dB,
-                    "humidity"  => get_random_humidity,
-                    "device_name" => get_random_device_name
-                }
-        when 11
-            @hash = {
-                    "audio_level" => get_random_dB,
-                    "temp_raw"  => get_random_temperature,
-                    "humidity"  => get_random_humidity,
-                    "device_name" => get_random_device_name
-                }
-        when 12
-            @hash = {
-                    "audio_level" => get_random_dB,
-                    "temp_raw"  => get_random_temperature,
-                    "luminosity"  => get_random_luminosity,
-                    "device_name" => get_random_device_name
-                }
-        when 13
-            @hash = {
-                    "audio_level" => get_random_dB,
-                    "humidity"  => get_random_humidity,
-                    "luminosity"  => get_random_luminosity,
-                    "device_name" => get_random_device_name
-                }
-        when 14
-            @hash = {
-                    "temp_raw"  => get_random_temperature,
-                    "humidity"  => get_random_humidity,
-                    "luminosity"  => get_random_luminosity,
-                    "device_name" => get_random_device_name
-                }
-        when 15
-            @hash = {
-                    "audio_level" => get_random_dB,
-                    "temp_raw"  => get_random_temperature,
-                    "humidity"  => get_random_humidity,
-                    "luminosity"  => get_random_luminosity,
-                    "device_name" => get_random_device_name
-                }
-        end
+        random = Random.new
+        random_value = random.rand(1..16)
+
+        hash =  {}
+
+        hash["audio_level"] = get_random_dB if (random_value / 1) % 2 == 0
+        hash["temp_raw"] = get_random_temperature if (random_value / 2) % 2 == 0
+        hash["humidity"] = get_random_humidity if (random_value / 4) % 2 == 0
+        hash["luminosity"] = get_random_luminosity if (random_value / 8) % 2 == 0
+        hash["device_name"] = get_random_device_name
+
+        return hash
     end
 end
 puts "Sensor topic: 'IoTdevices/RoomMonitor'"
-puts "MQTT service: 'mqtt.labict.be'"
+puts "MQTT broker: 'mqtt.labict.be'"
+puts "Simulator can be ended by pressing Ctrl+Pause/Break"
 sensor_simulator = Sensor_Simulator.new
 sensor_simulator.run_simulator
