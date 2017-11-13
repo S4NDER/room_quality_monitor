@@ -1,6 +1,6 @@
 class Device < ApplicationRecord
-  has_many :audio
-  has_many :humidity
-  has_many :luminosity
-  has_many :temperature
+  has_many :audios
+  has_many :humidities
+  has_many :luminosities
+  has_many :temperatures
 end
