@@ -1,72 +1,42 @@
-<script>
-    window.onload = function() {
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId            :  <%= ENV['FACEBOOK_APP_ID'] %>,
-          autoLogAppEvents : true,
-          xfbml            : true,
-          version          : 'v2.11'
-        });
-      };
-    
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = 'https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.11';
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    };
-
-</script>
-
-
-
+<% provide(:title, "RQM System Login") %>
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+<%= link_to "Sign up", new_registration_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+<%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+<%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+<%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end -%>
 
 <br />
 <br />
 
-<a class="link_to_profile" href="<%= omniauth_authorize_path(resource_name, "facebook") %>">
-    <img height="44" width="242" src="<%= asset_path('login_button_facebook')%>">
-  <!--  <div  style="pointer-events: none;" class="fb-login-button" data-max-rows="1" data-size="large" 
-    data-button-type="continue_with" data-show-faces="false" 
-    data-auto-logout-link="false" data-use-continue-as="true">
-  </div>
-    !-->
-</a>
 
-<br />
-<br />
-
-<a class="link_to_profile" href="<%= omniauth_authorize_path(resource_name, "google_oauth2") %>">
-  <img height="44" width="242" src="<%= asset_path('login_button_google')%>">
-</a>
-
-<br />
-<br />
-
-<a class="link_to_profile" href="<%= omniauth_authorize_path(resource_name, "twitter") %>">
-    <img height="44" width="242" src="<%= asset_path( 'login_button_twitter.png' ) %>" />
-</a>
-
-<br />
-<br />
-
-<a class="link_to_profile" href="<%= omniauth_authorize_path(resource_name, "github") %>">
-  <img height="44" width="242" src="<%= asset_path('login_button_github.png')%>">
-</a>
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <a class="link_to_profile" href="<%= omniauth_authorize_path(resource_name, "facebook") %>">
+                    <img height="44" width="242" src="<%= asset_path('login_button_facebook')%>">
+                </a>
+                <a class="link_to_profile" href="<%= omniauth_authorize_path(resource_name, "twitter") %>">
+                    <img height="44" width="242" src="<%= asset_path( 'login_button_twitter.png' ) %>" />
+                </a>
+                <br />
+                <a class="link_to_profile" href="<%= omniauth_authorize_path(resource_name, "google_oauth2") %>">
+                    <img height="44" width="242" src="<%= asset_path('login_button_google')%>">
+                </a>
+                <a class="link_to_profile" href="<%= omniauth_authorize_path(resource_name, "github") %>">
+                    <img height="44" width="242" src="<%= asset_path('login_button_github.png')%>">
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -44,3 +44,8 @@ a.link_to_profile{
   display: inline-block;
   background-color: transparent;
 }
+
+tr td:nth-child(n+3){
+  width:1%;
+  white-space:nowrap;
+}
