@@ -10,8 +10,6 @@ class ListenToMqttJob < ApplicationJob
                 cHash = JSON.parse(cJson)
                 ActionCable.server.broadcast "mqtt_message", device_message: cHash
                 mbed_info_db(cHash)
-                puts "--------------------"
-                puts cHash.inspect
             end
         end
         end
@@ -19,6 +17,8 @@ class ListenToMqttJob < ApplicationJob
 
     def mbed_info_db(message)
       Device.find_or_create_by(device_name: message['device_name'])
+      if message['device_name'] != null
+      end
       
     end
 
