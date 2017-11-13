@@ -45,9 +45,12 @@
   </div>
 </a>
 
-<br>
+<br />
+<br />
 
-<%= image_tag("/img/twitter.png",  :width => 25, :height => 25) %> <%= link_to "Login with Twitter", omniauth_authorize_path(resource_name, "twitter") %><br />
+<a id="link_to_profile" href="<%=omniauth_authorize_path(resource_name, "twitter")%>">
+    <img src="<%= asset_path( 'login_button_twitter.png' ) %>" />
+</a>
 <br />
 <%= image_tag("/img/google.png",  :width => 25, :height => 25) %>   <%= link_to " Login with Google", omniauth_authorize_path(resource_name, "google_oauth2") %><br />
 <br />
