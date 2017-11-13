@@ -1,3 +1,24 @@
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            :  <%= ENV['FACEBOOK_APP_ID'] %>,
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.11'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <%= link_to "Sign up", new_registration_path(resource_name) %><br />
 <% end -%>
@@ -17,9 +38,15 @@
 <br />
 <br />
 
+<a id="link_to_profile" href="<%=omniauth_authorize_path(resource_name, "facebook")%>">
+    <div  style="pointer-events: none;" class="fb-login-button" data-max-rows="1" data-size="large" 
+    data-button-type="continue_with" data-show-faces="false" 
+    data-auto-logout-link="false" data-use-continue-as="true">
+  </div>
+</a>
 
-<%= image_tag("/img/facebook.png",  :width => 25, :height => 25) %> <%= link_to "Login with Facebook", omniauth_authorize_path(resource_name, "facebook") %><br />
-<br />
+<br>
+
 <%= image_tag("/img/twitter.png",  :width => 25, :height => 25) %> <%= link_to "Login with Twitter", omniauth_authorize_path(resource_name, "twitter") %><br />
 <br />
 <%= image_tag("/img/google.png",  :width => 25, :height => 25) %>   <%= link_to " Login with Google", omniauth_authorize_path(resource_name, "google_oauth2") %><br />
