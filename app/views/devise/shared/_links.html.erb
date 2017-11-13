@@ -1,20 +1,23 @@
 <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId            :  <%= ENV['FACEBOOK_APP_ID'] %>,
-      autoLogAppEvents : true,
-      xfbml            : true,
-      version          : 'v2.11'
-    });
-  };
+    window.onload = function() {
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId            :  <%= ENV['FACEBOOK_APP_ID'] %>,
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v2.11'
+        });
+      };
+    
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = 'https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.11';
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
 </script>
 
 
@@ -38,23 +41,32 @@
 <br />
 <br />
 
-<a id="link_to_profile" href="<%=omniauth_authorize_path(resource_name, "facebook")%>">
-    <div  style="pointer-events: none;" class="fb-login-button" data-max-rows="1" data-size="large" 
+<a class="link_to_profile" href="<%= omniauth_authorize_path(resource_name, "facebook") %>">
+    <img height="44" width="242" src="<%= asset_path('login_button_facebook')%>">
+  <!--  <div  style="pointer-events: none;" class="fb-login-button" data-max-rows="1" data-size="large" 
     data-button-type="continue_with" data-show-faces="false" 
     data-auto-logout-link="false" data-use-continue-as="true">
   </div>
+    !-->
 </a>
 
 <br />
 <br />
 
-<a id="link_to_profile" href="<%=omniauth_authorize_path(resource_name, "twitter")%>">
-    <img src="<%= asset_path( 'login_button_twitter.png' ) %>" />
+<a class="link_to_profile" href="<%= omniauth_authorize_path(resource_name, "google_oauth2") %>">
+  <img height="44" width="242" src="<%= asset_path('login_button_google')%>">
 </a>
+
 <br />
-<%= image_tag("/img/google.png",  :width => 25, :height => 25) %>   <%= link_to " Login with Google", omniauth_authorize_path(resource_name, "google_oauth2") %><br />
 <br />
-<%= image_tag("/img/github.png",  :width => 25, :height => 25) %>   <%= link_to " Login with Github", omniauth_authorize_path(resource_name, "github") %><br />
 
+<a class="link_to_profile" href="<%= omniauth_authorize_path(resource_name, "twitter") %>">
+    <img height="44" width="242" src="<%= asset_path( 'login_button_twitter.png' ) %>" />
+</a>
 
+<br />
+<br />
 
+<a class="link_to_profile" href="<%= omniauth_authorize_path(resource_name, "github") %>">
+  <img height="44" width="242" src="<%= asset_path('login_button_github.png')%>">
+</a>
