@@ -8,11 +8,11 @@
             <div class="col s12 m5">
                 <div class="card-panel teal">
                     <span class="white-text">
-            <b>Device <%= @count += 1 %>:</b></br>
-            Audio: <%=device.audio.value %> dB </br>
-            Temperature: <%=device.temperature.value %> °C </br>
-            Luminosity: <%=device.luminosity.value %> lux </br>
-            Humidity: <%=device.humidity.value %> % </br>
+            <b><%=device.device_name %></b></br>
+            Audio: <%=device.audio.values %> dB </br>
+            Temperature: <%=device.temperature.values %> °C </br>
+            Luminosity: <%=device.luminosity.values %> lux </br>
+            Humidity: <%=device.humidity.values %> % </br>
             </span>
                 </div>
             </div>
