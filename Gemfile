@@ -65,5 +65,5 @@ gem 'omniauth-twitter'
 
 gem 'mqtt'
 gem 'json'
-
+gem 'jquery-rails', '4.3.1'
 
