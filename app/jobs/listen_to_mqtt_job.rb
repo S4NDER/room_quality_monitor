@@ -20,9 +20,6 @@ class ListenToMqttJob < ApplicationJob
       device.audios.create(:value => message['audio_level'])  if message['audio_level']
       device.humidities.create(:value => message['humidity'])  if message['humidity']
       device.luminosities.create(:value => message['luminosity'])  if message['luminosity']
-      device.temperatures.create(:value => message['temp_raw'])  if message['temp_raw'] 
-      
-      
+      device.temperatures.create(:value => message['temp_raw'])  if message['temp_raw']    
     end
-
   end

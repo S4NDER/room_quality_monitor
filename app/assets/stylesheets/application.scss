@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require material_icons
  */
  @import "materialize/components/color";
  $primary-color: color("light-blue", "darken-1") !default;
@@ -32,10 +33,28 @@
     a:visited{
       color: white;
     }
+  }
 
+}
+
+ul#mobile_menu{
+  li{
+    a:visited{
+      color: black !important;
+    }
   }
 }
 
 nav ul a {
   font-size: 1.3rem;
+}
+
+a.link_to_profile{
+  display: inline-block;
+  background-color: transparent;
+}
+
+tr td:nth-child(n+3){
+  width:1%;
+  white-space:nowrap;
 }

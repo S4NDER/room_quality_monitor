@@ -1,12 +1,26 @@
+<% provide(:title, "RQM System Profile Page") %>
 <% unless current_user %>
-<h1>ERROR 123</h1>
+    <h1>ERROR 123</h1>
+    <% else %>
 
-<% else %>
-<h1>Profile</h1>
-<h3><%= current_user[:name] %> </h3>
-<%= image_tag(current_user.image,  :width => 40, :height => 40) %> 
-Email: <%= current_user[:email] %></br>
-
-
-
-<% end %>
+        <div class="col s12 m7">
+            <h2 class="header">Profile</h2>
+            <div class="card horizontal">
+                <div class="card-image">
+                    <%= image_tag(current_user.image,  :width => 220, :height => 220) %>
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h3>
+                            <%= current_user[:name] %>
+                        </h3>
+                    </div>
+                    <div class="card-action">
+                        <p>Email:
+                            <%= current_user[:email] %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>

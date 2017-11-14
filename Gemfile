@@ -63,7 +63,10 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
 
+gem 'groupdate'
+gem "chartkick"
+
 gem 'mqtt'
 gem 'json'
-
+gem 'jquery-rails', '4.3.1'
 

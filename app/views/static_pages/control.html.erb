@@ -1,19 +1,26 @@
+<% provide(:title, "RQM System Control Page") %>
 <h1>Control Page</h1>
 
 <h3>Devices</h3>
-    <% Device.all.each do |device| %>
+<%= line_chart (Device.last.audios.group_by_minute(:created_at, range: 1.hours.ago..Time.now).maximum(:value)), xtitle: "Time", ytitle: "Audio (dB)" %>
 
-        <div class="row">
-            <div class="col s12 m5">
-                <div class="card-panel teal">
-                    <span class="white-text">
-            <b><%=device.device_name %></b></br>
-            Audio: <%=device.audios.last.value %> dB              (<%=device.audios.last.updated_at.strftime("%H:%M:%S")%>)</br>        
-            Temperature: <%=device.temperatures.last.value %> °C  (<%=device.temperatures.last.updated_at.strftime("%H:%M:%S")%>)</br>
-            Luminosity:  <%=device.luminosities.last.value %> lux (<%=device.luminosities.last.updated_at.strftime("%H:%M:%S")%>)</br>
-            Humidity:    <%=device.humidities.last.value %> %     (<%=device.humidities.last.updated_at.strftime("%H:%M:%S")%>)</br>
+<div id="devices">
+<% Device.all.each do |device| %>
+
+
+<div class="row">
+    <div class="col s12 m5">
+        <div class="card-panel teal">
+            <span class="white-text">
+                <b><%=device.device_name %></b></br>
+                Audio: <%=device.audios.last.value %> dB              (<%=device.audios.last.updated_at.strftime("%H:%M:%S")%>)</br>
+                
+                Temperature: <%=device.temperatures.last.value %> °C  (<%=device.temperatures.last.updated_at.strftime("%H:%M:%S")%>)</br>
+                Luminosity:  <%=device.luminosities.last.value %> lux (<%=device.luminosities.last.updated_at.strftime("%H:%M:%S")%>)</br>
+                Humidity:    <%=device.humidities.last.value %> %     (<%=device.humidities.last.updated_at.strftime("%H:%M:%S")%>)</br>
             </span>
-                </div>
-            </div>
         </div>
-        <% end %>
+    </div>
+</div>
+<% end %>
+</div>
