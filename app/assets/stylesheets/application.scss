@@ -19,6 +19,10 @@
 
  @import 'materialize';
 
+ body#homepage{
+  background-image: url("/assets/background_home.jpg");
+ }
+
 .footer {
   position: fixed;
   right: 0;

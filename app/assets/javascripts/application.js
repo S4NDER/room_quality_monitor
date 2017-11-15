@@ -21,6 +21,11 @@
 
 $(document).on('turbolinks:load', function() {
     $(".button-collapse").sideNav();
+
+    if(window.location.pathname == "/") {
+        document.getElementsByTagName("body")[0].setAttribute("id", "homepage");
+        
+    }
 });
 
 if (window.location.href.indexOf('#_=_') > 0) {
