@@ -4,14 +4,14 @@
           <a href="#!" class="brand-logo">Logo</a>
           <a href="#" data-activates="mobile_menu" class="button-collapse"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
-              <li class="nav-items"><%= link_to "Home",    root_path %></li>
+              <li class="active" id="nav-items"><%= link_to "Home",    root_path %></li>
               <% unless current_user %> 
-              <li class="nav-items"><%= link_to "Sign-up", new_user_registration_path %></li>
-              <li class="nav-items"><%= link_to "Login", new_user_session_path %></li>
+              <li id="nav-items"><%= link_to "Sign-up", new_user_registration_path %></li>
+              <li id="nav-items"><%= link_to "Login", new_user_session_path %></li>
               <% else %>
-              <li class="nav-items"><%= link_to "Control Panel", controls_path  %></li>
-              <li class="nav-items"><%= link_to "Profile", profile_path  %></li>
-              <li class="nav-items"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+              <li id="nav-items"><%= link_to "Control Panel", controls_path  %></li>
+              <li id="nav-items"><%= link_to "Profile", profile_path  %></li>
+              <li id="nav-items"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
               <% end %>
           </ul>
           <ul class="side-nav" id="mobile_menu">
