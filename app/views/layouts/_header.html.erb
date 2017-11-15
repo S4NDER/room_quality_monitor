@@ -8,7 +8,7 @@
           <li class="nav-items"><%= link_to "Sign-up", new_user_registration_path %></li>
           <li class="nav-items"><%= link_to "Login", new_user_session_path %></li>
           <% else %>
-          <li class="nav-items"><%= link_to "Control Panel", control_path  %></li>
+          <li class="nav-items"><%= link_to "Control Panel", controls_path  %></li>
           <li class="nav-items"><%= link_to "Profile", profile_path  %></li>
           <li class="nav-items"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
           <% end %>
@@ -19,7 +19,7 @@
           <li class="nav-items"><%= link_to "Sign-up", new_user_registration_path %></li>
           <li class="nav-items"><%= link_to "Login", new_user_session_path %></li>
           <% else %>
-          <li class="nav-items"><%= link_to "Control Panel", control_path  %></li>
+          <li class="nav-items"><%= link_to "Control Panel", controls_path  %></li>
           <li class="nav-items"><%= link_to "Profile", profile_path  %></li>
           <li class="nav-items"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
           <% end %>

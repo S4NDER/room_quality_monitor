@@ -2,11 +2,16 @@
 <h1>Control Page</h1>
 
 <h3>Devices</h3>
-<%= line_chart (Device.last.audios.group_by_minute(:created_at, range: 1.hours.ago..Time.now).maximum(:value)), xtitle: "Time", ytitle: "Audio (dB)" %>
+
 
 <div id="devices">
+        <%= line_chart (Device.last.audios.group_by_minute(:created_at, 
+        range: 1.hours.ago..Time.now).maximum(:value)),
+        xtitle: "Time", 
+        ytitle: "Audio (dB)"
+        %>
+        
 <% Device.all.each do |device| %>
-
 
 <div class="row">
     <div class="col s12 m5">
