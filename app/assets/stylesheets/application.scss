@@ -23,6 +23,10 @@
   background-image: url("/assets/background_home.jpg");
  }
 
+ a#brand-logo:hover{
+   background: transparent;
+ }
+
 .footer {
   position: fixed;
   right: 0;
