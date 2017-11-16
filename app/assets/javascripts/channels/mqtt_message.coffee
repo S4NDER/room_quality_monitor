@@ -7,5 +7,5 @@ App.message = App.cable.subscriptions.create "MqttMessageChannel",
 
   received: (data) ->
     console.log(data.device_message)
-    $('#devices').load('/control #devices')
+    $('#devices').load('/controls #devices')
 
