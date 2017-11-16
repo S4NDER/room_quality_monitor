@@ -20,7 +20,11 @@
  @import 'materialize';
 
  body#homepage{
-  background-image: url("/assets/background_home.jpg");
+  background: url("/assets/background_home.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
  }
 
  a#brand-logo:hover{
