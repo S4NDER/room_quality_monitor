@@ -4,13 +4,7 @@
 <h3>Devices</h3>
 
 
-<div id="devices">
-        <%= line_chart (Device.last.audios.group_by_minute(:created_at, 
-        range: 1.hours.ago..Time.now).maximum(:value)),
-        xtitle: "Time", 
-        ytitle: "Audio (dB)"
-        %>
-        
+<div id="devices">        
 <% Device.all.each do |device| %>
 
 <div class="row">
@@ -18,14 +12,26 @@
         <div class="card-panel teal">
             <span class="white-text">
                 <b><%=device.device_name %></b></br>
-                Audio: <%=device.audios.last.value %> dB              (<%=device.audios.last.updated_at.strftime("%H:%M:%S")%>)</br>
                 
+                <i class="material-icons">show_chart</i>
+                Audio: <%=device.audios.last.value %> dB              (<%=device.audios.last.updated_at.strftime("%H:%M:%S")%>)</br>     
+                
+                <i class="material-icons">show_chart</i>
                 Temperature: <%=device.temperatures.last.value %> °C  (<%=device.temperatures.last.updated_at.strftime("%H:%M:%S")%>)</br>
+                
+                <i class="material-icons">show_chart</i>
                 Luminosity:  <%=device.luminosities.last.value %> lux (<%=device.luminosities.last.updated_at.strftime("%H:%M:%S")%>)</br>
+                
+                <i class="material-icons">show_chart</i>
                 Humidity:    <%=device.humidities.last.value %> %     (<%=device.humidities.last.updated_at.strftime("%H:%M:%S")%>)</br>
             </span>
         </div>
     </div>
 </div>
 <% end %>
+<%= line_chart (Device.last.audios.group_by_minute(:created_at, 
+range: 1.hours.ago..Time.now).maximum(:value)),
+xtitle: "Time", 
+ytitle: "Audio (dB)"
+%>
 </div>
