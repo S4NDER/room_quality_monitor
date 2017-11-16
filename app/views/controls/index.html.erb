@@ -8,6 +8,7 @@
         <div class="col s12">       
             <% Device.all.each do |device| %>        
                 <div class="col s6">
+                    <div class="z-depth-4">
                     <div class="card-panel teal">
                         <span class="white-text">
                             <h5><b><%=device.device_name %></b></h5></br>                            
@@ -24,6 +25,7 @@
                             Humidity:    <%=device.humidities.last.value %> %     (<%=device.humidities.last.updated_at.strftime("%H:%M:%S")%>)</br>
                         </span>
                     </div>
+                </div>
                 </div>
             <% end %>
          </div>
