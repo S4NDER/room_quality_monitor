@@ -9,22 +9,24 @@
         <div class="col s12">       
             <% Device.all.each do |device| %>        
                 <div class="col s6">
-                    <div class="card-panel teal">
-                        <span class="white-text">
-                            <h5><b><%=device.device_name %></b></h5></br>                            
-                            <a class="waves-effect waves-light btn modal-trigger"  href="#modal1"><i class="material-icons ">show_chart</i></a>
-                            Audio: <%=device.audios.last.value %> dB              (<%=device.audios.last.updated_at.strftime("%H:%M:%S")%>)</br>     
-
-                            <a class="waves-effect waves-light btn modal-trigger"  href="#modal1"><i class="material-icons ">show_chart</i></a>
-                            Temperature: <%=device.temperatures.last.value %> °C  (<%=device.temperatures.last.updated_at.strftime("%H:%M:%S")%>)</br>
-                            
-                            <a class="waves-effect waves-light btn modal-trigger"  href="#modal1"><i class="material-icons ">show_chart</i></a>
-                            Luminosity:  <%=device.luminosities.last.value %> lux (<%=device.luminosities.last.updated_at.strftime("%H:%M:%S")%>)</br>
-                            
-                            <a class="waves-effect waves-light btn modal-trigger"  href="#modal1"><i class="material-icons ">show_chart</i></a>
-                            Humidity:    <%=device.humidities.last.value %> %     (<%=device.humidities.last.updated_at.strftime("%H:%M:%S")%>)</br>
-                        </span>
-                    </div>
+                    <div class="z-depth-5">
+                        <div class="card-panel teal">
+                                <span class="white-text">
+                                <h5><b><%=device.device_name %></b></h5></br>                            
+                                <a class="waves-effect waves-light btn modal-trigger"  href="#modal1"><i class="material-icons ">show_chart</i></a>
+                                Audio: <%=device.audios.last.value %> dB              (<%=device.audios.last.updated_at.strftime("%H:%M:%S")%>)</br>     
+            
+                                <a class="waves-effect waves-light btn modal-trigger"  href="#modal1"><i class="material-icons ">show_chart</i></a>
+                                Temperature: <%=device.temperatures.last.value %> °C  (<%=device.temperatures.last.updated_at.strftime("%H:%M:%S")%>)</br>
+                                        
+                                <a class="waves-effect waves-light btn modal-trigger"  href="#modal1"><i class="material-icons ">show_chart</i></a>
+                                Luminosity:  <%=device.luminosities.last.value %> lux (<%=device.luminosities.last.updated_at.strftime("%H:%M:%S")%>)</br>
+                                        
+                                <a class="waves-effect waves-light btn modal-trigger"  href="#modal1"><i class="material-icons ">show_chart</i></a>
+                                Humidity:    <%=device.humidities.last.value %> %     (<%=device.humidities.last.updated_at.strftime("%H:%M:%S")%>)</br>
+                            </span>
+                        </div>
+                    </div>                    
                 </div>
             <% end %>
          </div>
