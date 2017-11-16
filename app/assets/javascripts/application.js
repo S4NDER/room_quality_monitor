@@ -24,7 +24,19 @@ $(document).on('turbolinks:load', function() {
 
     if(window.location.pathname == "/") {
         document.getElementsByTagName("body")[0].setAttribute("id", "homepage");
-        
+        document.getElementById("nav-home").setAttribute("class", "active");
+    }
+    if(window.location.pathname == "/controls") {
+        document.getElementById("nav-controls").setAttribute("class", "active");
+    }
+    if(window.location.pathname == "/profile") {
+        document.getElementById("nav-profile").setAttribute("class", "active");
+    }
+    if(window.location.pathname == "/users/sign_in") {
+        document.getElementById("nav-sign-up").setAttribute("class", "active");
+    }
+    if(window.location.pathname == "/users/sign_in") {
+        document.getElementById("nav-login").setAttribute("class", "active");
     }
 });
 

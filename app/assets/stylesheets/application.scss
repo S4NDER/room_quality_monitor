@@ -42,12 +42,15 @@
     margin-top: 7%;
     margin-left: 5%;
   }
-  .nav-items{
-    padding-top: 8%;
-    
-    a:visited{
-      color: white;
-    }
+  a:visited{
+    color: white;
+  }
+  a:hover{
+    background-color: transparent;
+  }
+
+  li:hover{
+    background-color:rgba(0, 0, 0, 0.1);
   }
 
 }
@@ -59,13 +62,15 @@ ul#mobile_menu{
     }
   }
 }
-nav ul li{
-  padding-top: 5.9%;
-  padding-bottom: 5%;
-}
+
 
 nav ul a {
   font-size: 1.3rem;
+}
+
+nav ul li{
+  padding-top: 5%;
+  padding-bottom: 5.5%;
 }
 
 a.link_to_profile{
