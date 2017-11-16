@@ -11,8 +11,8 @@
                 <div class="col s6">
                     <div class="card-panel teal">
                         <span class="white-text">
-                            <h5><b><%=device.device_name %></b></h5></br>
-                            <a class="waves-effect waves-light btn"><i class="material-icons ">show_chart</i></a>
+                            <h5><b><%=device.device_name %></b></h5></br>                            
+                            <a class="waves-effect waves-light btn" id="button"><i class="material-icons ">show_chart</i></a>
                             Audio: <%=device.audios.last.value %> dB              (<%=device.audios.last.updated_at.strftime("%H:%M:%S")%>)</br>     
 
                             <a class="waves-effect waves-light btn"><i class="material-icons ">show_chart</i></a>
@@ -35,3 +35,7 @@ range: 1.hours.ago..Time.now).maximum(:value)),
 xtitle: "Time", 
 ytitle: "Audio (dB)"
 %>
+
+<div id="dialog" title="Chart">
+ Mega zotte grafiek
+</div>
