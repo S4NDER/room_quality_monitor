@@ -49,8 +49,29 @@
     background-color: transparent;
   }
 
+  li{
+    padding-top: 5%;
+    padding-bottom: 5.5%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    
+  }
+
+
   li:hover{
     background-color:rgba(0, 0, 0, 0.1);
+    a{
+      font-weight: bold;
+    }
+  }
+
+  li#dirty:hover{
+    background-color: rgba(0, 0, 0, 0) !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
 }
@@ -66,11 +87,6 @@ ul#mobile_menu{
 
 nav ul a {
   font-size: 1.3rem;
-}
-
-nav ul li{
-  padding-top: 5%;
-  padding-bottom: 5.5%;
 }
 
 a.link_to_profile{

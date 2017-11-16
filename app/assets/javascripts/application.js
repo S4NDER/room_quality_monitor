@@ -32,7 +32,7 @@ $(document).on('turbolinks:load', function() {
     if(window.location.pathname == "/profile") {
         document.getElementById("nav-profile").setAttribute("class", "active");
     }
-    if(window.location.pathname == "/users/sign_in") {
+    if(window.location.pathname == "/users/sign_up") {
         document.getElementById("nav-sign-up").setAttribute("class", "active");
     }
     if(window.location.pathname == "/users/sign_in") {
