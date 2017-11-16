@@ -5,6 +5,8 @@
 
  
 $(document).ready ->
-  # the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-  $('.modal').modal()
+  $('.modal').modal ready: (modal, trigger) ->
+    modal.find('#data-device_name').text trigger.data('device_name')
+    modal.find('#data-type').text trigger.data('type')
+    return
   return
