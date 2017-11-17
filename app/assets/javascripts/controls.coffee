@@ -4,9 +4,4 @@
 
 
  
-$(document).ready ->
-  $('.modal').modal ready: (modal, trigger) ->
-    modal.find('#data-device_name').text trigger.data('device_name')
-    modal.find('#data-type').text trigger.data('type')
-    return
-  return
+
