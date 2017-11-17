@@ -19,20 +19,64 @@
 
  @import 'materialize';
 
+ body#homepage{
+  background: url("/assets/background_home.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+ }
+
+ a#brand-logo:hover{
+   background: transparent;
+ }
+
+
 .footer {
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
 }
 
 .header{
-  .nav-items{
-    padding-top: 8%;
+  top: 0;
+
+  img{
+    margin-top: 7%;
+    margin-left: 5%;
+  }
+  a:visited{
+    color: white;
+  }
+  a:hover{
+    background-color: transparent;
+  }
+
+  li{
+    padding-top: 5%;
+    padding-bottom: 5.5%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
     
-    a:visited{
-      color: white;
+  }
+
+
+  li:hover{
+    background-color:rgba(0, 0, 0, 0.1);
+    a{
+      -webkit-transform: scale(1.15); 
+
     }
+  }
+
+  li#dirty:hover{
+    background-color: rgba(0, 0, 0, 0) !important;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
 }
@@ -44,6 +88,7 @@ ul#mobile_menu{
     }
   }
 }
+
 
 nav ul a {
   font-size: 1.3rem;
