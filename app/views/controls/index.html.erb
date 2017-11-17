@@ -36,9 +36,11 @@
 <div id="modal1" class="modal">
     <div class="modal-content">
         <h4><strong id="data-device_name"></strong>:  <strong id="data-type"></strong></h4>
-        <%= line_chart (Device.last.audios.group_by_minute(:created_at, 
+        <%= 
+        
+        line_chart (Device.last.audios.group_by_minute(:created_at, 
         range: 1.hours.ago..Time.now).maximum(:value)),
-        xtitle: "Time"
+        xtitle: @str = '<b>Hi</b>'.html_safe
         %>
     </div>
 </div>
