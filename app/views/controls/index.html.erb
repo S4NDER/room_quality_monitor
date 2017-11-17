@@ -12,16 +12,16 @@
                     <div class="card-panel teal">
                         <span class="white-text">
                             <h5><b><%=device.device_name %></b></h5></br>                            
-                            <a class="edit_data btn orange" data-device_name="<%=device.device_name %>" data-type="Audio"><i class="material-icons ">show_chart</i></a>
+                            <a class="edit_data btn orange" data-device_name="<%=device.device_name %>" data-type="Audio" href="/chart_by_device_types"><i class="material-icons ">show_chart</i></a>
                             Audio: <%=device.audios.last.value %> dB              (<%=device.audios.last.updated_at.strftime("%H:%M:%S")%>)</br>     
 
-                            <a class="edit_data btn orange" data-device_name="<%=device.device_name %>" data-type="Temperature"><i class="material-icons ">show_chart</i></a>
+                            <a class="edit_data btn orange" data-device_name="<%=device.device_name %>" data-type="Temperature" href="/chart_by_device_types"><i class="material-icons ">show_chart</i></a>
                             Temperature: <%=device.temperatures.last.value %> °C  (<%=device.temperatures.last.updated_at.strftime("%H:%M:%S")%>)</br>
                             
-                            <a class="edit_data btn orange" data-device_name="<%=device.device_name %>" data-type="Luminosity"><i class="material-icons ">show_chart</i></a>
+                            <a class="edit_data btn orange" data-device_name="<%=device.device_name %>" data-type="Luminosity" href="/chart_by_device_types"><i class="material-icons ">show_chart</i></a>
                             Luminosity:  <%=device.luminosities.last.value %> lux (<%=device.luminosities.last.updated_at.strftime("%H:%M:%S")%>)</br>
                             
-                            <a class="edit_data btn orange" data-device_name="<%=device.device_name %>" data-type="Humidity"><i class="material-icons ">show_chart</i></a>                            
+                            <a class="edit_data btn orange" data-device_name="<%=device.device_name %>" data-type="Humidity" href="/chart_by_device_types"><i class="material-icons ">show_chart</i></a>                            
                             Humidity:    <%=device.humidities.last.value %> %     (<%=device.humidities.last.updated_at.strftime("%H:%M:%S")%>)</br>
                         </span>
                     </div>
