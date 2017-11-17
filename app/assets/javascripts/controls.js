@@ -1,5 +1,3 @@
-console.log("Hallo");
-
 $(document).ready(function() {
   $('.show_chart').click(function() {
     var device_id=$(this).data('device-id');
