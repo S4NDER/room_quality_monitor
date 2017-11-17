@@ -12,7 +12,7 @@
                     <div class="card-panel teal">
                         <span class="white-text">
                             <h5><b><%=device.device_name %></b></h5></br>                            
-                            <a class="edit_data btn orange" data-device_name="<%=device.device_name %>" data-type="Audio" href="/chart_by_device_types"><i class="material-icons ">show_chart</i></a>
+                            <button class="edit_data btn orange show_chart" data-device-id="<%=device.id %>" data-device-type="audio"><i class="material-icons ">show_chart</i></button>
                             Audio: <%=device.audios.last.value %> dB              (<%=device.audios.last.updated_at.strftime("%H:%M:%S")%>)</br>     
 
                             <a class="edit_data btn orange" data-device_name="<%=device.device_name %>" data-type="Temperature" href="/chart_by_device_types"><i class="material-icons ">show_chart</i></a>
@@ -31,9 +31,4 @@
          </div>
     </div>
 </div>
-<%= 
-line_chart (Device.last.audios.group_by_minute(:created_at, 
-range: 1.hours.ago..Time.now).maximum(:value)),
-xtitle: "time",
-ytitle: "????"
-%>
+<div id="chart-1" style="height: 300px"></div>

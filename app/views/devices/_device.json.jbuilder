@@ -1,2 +1,6 @@
-json.extract! device, :id, :audio_id, :humidity_id, :luminosity_id, :temperature_id, :created_at, :updated_at
-json.url device_url(device, format: :json)
+json.extract! device, :id, :device_name 
+
+json.audios(device.audios) do |audio|
+    json.value audio.value
+    json.created_at audio.created_at
+end
