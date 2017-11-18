@@ -6,36 +6,34 @@ $(document).ready(function() {
     var device_type=$(this).data('device-type');
     $.get('/devices/'+device_id+'.json', function(data) {
       var ytitle;
-      var chart_data = {}; 
+      var chart_data = {};
+      var data_1h = {};
       var device_name = data.device_name;
-
+           
       if (device_type == "audio"){
         ytitle= "Audio (dB)";
-        for (var item of data.audios){
-          chart_data[item.created_at]=item.value
-        }
+        data_1h = get_value_by_hour_limit(data.audios);    
       }
 
       else if (device_type == "temperature"){
         ytitle= "Temperature (°C)";
-        for (var item of data.temperatures){
-          chart_data[item.created_at]=item.value
-        }
+        data_1h = get_value_by_hour_limit(data.temperatures);
       }
 
       else if (device_type == "humidity"){
         ytitle= "Humidity (%)";
-        for (var item of data.humidities){
-          chart_data[item.created_at]=item.value
-        }
+        data_1h = get_value_by_hour_limit(data.humidities);
       }
 
       else if (device_type == "luminosity"){
         ytitle= "Luminosity (cd)";
-        for (var item of data.luminosities){
-          chart_data[item.created_at]=item.value
-        }
+        data_1h = get_value_by_hour_limit(data.luminosities);
       }
+
+      for (var item of data_1h){
+        chart_data[item.created_at]=item.value;
+      }
+      
       
       document.getElementById("device_name").innerHTML = device_name;
       window.chart = new Chartkick.LineChart("chart-1",chart_data, {xtitle: "Time", ytitle: ytitle})
@@ -43,3 +41,21 @@ $(document).ready(function() {
   });
   
 });
+
+
+function get_value_by_hour_limit(data){
+  var current_time = (new Date()).getTime();
+  var time_1hour_ago = current_time-3600000;
+  var temp_time = time_1hour_ago
+  var j = 0;
+  var temp=[];
+
+
+  for(var i = data.length-1; temp_time >= time_1hour_ago; i--){    
+    temp[j]=data[i];
+    var d = new Date(data[i].created_at);
+    temp_time = d.getTime()
+    j++;
+  }
+  return temp.slice(0, -1);
+}
