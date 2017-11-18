@@ -9,30 +9,41 @@ $(document).ready(function() {
       var chart_data = {};
       var data_1h = {};
       var device_name = data.device_name;
-           
-      if (device_type == "audio"){
-        ytitle= "Audio (dB)";
-        data_1h = get_value_by_hour_limit(data.audios);    
-      }
 
-      else if (device_type == "temperature"){
-        ytitle= "Temperature (°C)";
-        data_1h = get_value_by_hour_limit(data.temperatures);
-      }
+      switch(device_type) {
+        case "audio":
+          ytitle= "Audio (dB)";
+          data_1h = get_value_by_hour_limit(data.audios);   
+          break;
 
-      else if (device_type == "humidity"){
-        ytitle= "Humidity (%)";
-        data_1h = get_value_by_hour_limit(data.humidities);
-      }
+        case "temperature":
+          ytitle= "Temperature (°C)";
+          data_1h = get_value_by_hour_limit(data.temperatures);
+          break;
+        
+        case "humidity":
+          ytitle= "Humidity (%)";
+          data_1h = get_value_by_hour_limit(data.humidities);
+          break;
+        
+        case "luminosity":
+          ytitle= "Luminosity (cd)";
+          data_1h = get_value_by_hour_limit(data.luminosities);
+          break;
 
-      else if (device_type == "luminosity"){
-        ytitle= "Luminosity (cd)";
-        data_1h = get_value_by_hour_limit(data.luminosities);
-      }
+        default:
+          console.log("Button ???");
+      
 
-      for (var item of data_1h){
-        chart_data[item.created_at]=item.value;
+      try {
+        for (var item of data_1h){
+          chart_data[item.created_at]=item.value;
+        }
       }
+      catch(err) {
+           console.log("Error on transforming data chart");
+        }
+      
       
       
       document.getElementById("device_name").innerHTML = device_name;
