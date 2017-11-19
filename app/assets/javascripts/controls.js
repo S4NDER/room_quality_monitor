@@ -45,9 +45,9 @@ $(document).on('turbolinks:load', function() {
            console.log("Error on transforming data chart");
         }
       
-        
       document.getElementById("device_name").innerHTML = device_name;
-      window.chart = new Chartkick.LineChart("chart-1",chart_data, {xtitle: "Time", ytitle: ytitle});
+      window.chart = new Chartkick.LineChart("chart-1",chart_data, {xtitle: "Time", ytitle: ytitle},);
+
     });
   });
   
