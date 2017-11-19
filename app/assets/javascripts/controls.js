@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $('.modal').modal();
 
   $('.show_chart').click(function() {
@@ -33,7 +33,8 @@ $(document).ready(function() {
 
         default:
           console.log("Button ???");
-      }      
+      }
+      console.log("Showing them graphs :P");  
 
       try {
         for (var item of data_1h){
