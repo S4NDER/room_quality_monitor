@@ -12,17 +12,17 @@
                     <div class="card-panel teal">
                         <span class="white-text">
                             <h5><b><%=device.device_name %></b></h5></br>                            
-                            <a class="edit_data btn orange modal-trigger" data-device_name="<%=device.device_name %>" data-type="Audio" data-toggle="modal" data-target="modal1"><i class="material-icons ">show_chart</i></a>
-                            Audio: <%=device.audios.last.value %> dB              (<%=device.audios.last.updated_at.strftime("%H:%M:%S")%>)</br>     
+                            <a class="edit_data btn orange show_chart modal-trigger" data-device-id="<%=device.id %>" data-device-type="audio" href="#modal1"><i class="material-icons ">show_chart</i></a>
+                            Audio: <%=device.audios.last.value %> dB              (<%=((device.audios.last.created_at)+ 60.minutes).strftime("%H:%M:%S")%>)</br>     
 
-                            <a class="edit_data btn orange modal-trigger" data-device_name="<%=device.device_name %>" data-type="Temperature" data-toggle="modal" data-target="modal1"><i class="material-icons ">show_chart</i></a>
-                            Temperature: <%=device.temperatures.last.value %> °C  (<%=device.temperatures.last.updated_at.strftime("%H:%M:%S")%>)</br>
+                            <a class="edit_data btn orange show_chart modal-trigger" data-device-id="<%=device.id %>" data-device-type="temperature" href="#modal1"><i class="material-icons ">show_chart</i></a>
+                            Temperature: <%=device.temperatures.last.value %> °C  (<%=((device.temperatures.last.created_at)+ 60.minutes).strftime("%H:%M:%S")%>)</br>
                             
-                            <a class="edit_data btn orange modal-trigger" data-device_name="<%=device.device_name %>" data-type="Luminosity" data-toggle="modal" data-target="modal1"><i class="material-icons ">show_chart</i></a>
-                            Luminosity:  <%=device.luminosities.last.value %> lux (<%=device.luminosities.last.updated_at.strftime("%H:%M:%S")%>)</br>
+                            <a class="edit_data btn orange show_chart modal-trigger" data-device-id="<%=device.id %>" data-device-type="luminosity" href="#modal1"><i class="material-icons ">show_chart</i></a>
+                            Luminosity:  <%=device.luminosities.last.value %> lux (<%=((device.luminosities.last.created_at)+ 60.minutes).strftime("%H:%M:%S")%>)</br>
                             
-                            <a class="edit_data btn orange modal-trigger" data-device_name="<%=device.device_name %>" data-type="Humidity" data-toggle="modal" data-target="modal1"><i class="material-icons ">show_chart</i></a>                            
-                            Humidity:    <%=device.humidities.last.value %> %     (<%=device.humidities.last.updated_at.strftime("%H:%M:%S")%>)</br>
+                            <a class="edit_data btn orange show_chart modal-trigger" data-device-id="<%=device.id %>" data-device-type="humidity" href="#modal1"><i class="material-icons ">show_chart</i></a>                           
+                            Humidity:    <%=device.humidities.last.value %> %     (<%=((device.humidities.last.created_at)+ 60.minutes).strftime("%H:%M:%S")%>)</br>
                         </span>
                     </div>
                 </div>
@@ -32,15 +32,9 @@
     </div>
 </div>
 
-
 <div id="modal1" class="modal">
     <div class="modal-content">
-        <h4><strong id="data-device_name"></strong>:  <strong id="data-type"></strong></h4>
-        <%= 
-        
-        line_chart (Device.last.audios.group_by_minute(:created_at, 
-        range: 1.hours.ago..Time.now).maximum(:value)),
-        xtitle: @str = '<b>Hi</b>'.html_safe
-        %>
+        <h4 id="device_name">Modal Header</h4>
+        <div id="chart-1" style="height: 300px"></div>
     </div>
 </div>

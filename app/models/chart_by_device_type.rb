@@ -1,0 +1,2 @@
+class ChartByDeviceType < ApplicationRecord
+end
