@@ -21,9 +21,6 @@
 
 $(document).on('turbolinks:load', function() {
     $(".button-collapse").sideNav();
-    $(document).ready(function(){
-        $('.parallax').parallax();
-      });
 
     if(window.location.pathname == "/") {
         document.getElementsByTagName("body")[0].setAttribute("id", "homepage");
