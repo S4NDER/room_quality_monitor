@@ -1,5 +1,5 @@
 class AdminpagesController < ApplicationController
-  before_action :test_admin
+  before_action :authenticate_user!, :test_admin
   def index
 
   end
