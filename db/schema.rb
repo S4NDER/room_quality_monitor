@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120080258) do
+ActiveRecord::Schema.define(version: 20171120080842) do
+
+  create_table "adminpages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "audios", force: :cascade do |t|
     t.float "value"
