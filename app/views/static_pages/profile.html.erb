@@ -7,7 +7,7 @@
             <h2 class="header">Profile</h2>
             <div class="card horizontal">
                 <div class="card-image">
-                    <%= image_tag(current_user.image,  :width => 220, :height => 220) %>
+                    <%= image_tag(current_user.image,  :width => 220, :height => 220) if current_user.image.present? %>
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
