@@ -19,7 +19,7 @@ $float_accuracy = 2
 $float_factor_min = 1.1
 $float_factor_max = 1.5
 
-$device_count = 3
+$device_count = 5
 
 $mqtt_client = MQTT::Client.connect('mqtt.labict.be')
 $sensor_topic = 'IoTdevices/RoomMonitor'
