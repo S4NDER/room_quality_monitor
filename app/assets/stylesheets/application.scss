@@ -54,8 +54,6 @@
   }
 
   li{
-    padding-top: 5%;
-    padding-bottom: 5.5%;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
@@ -67,18 +65,8 @@
     background-color:rgba(0, 0, 0, 0.1);
     a{
       -webkit-transform: scale(1.15); 
-
     }
   }
-
-  li#dirty:hover{
-    background-color: rgba(0, 0, 0, 0) !important;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
 }
 
 ul#mobile_menu{
@@ -89,6 +77,9 @@ ul#mobile_menu{
   }
 }
 
+nav ul {
+  padding-right: 10px;
+}
 
 nav ul a {
   font-size: 1.3rem;

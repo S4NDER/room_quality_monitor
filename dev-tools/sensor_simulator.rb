@@ -37,7 +37,7 @@ class Sensor_Simulator
     end
 
     def run_simulator
-        while true
+        loop do
             begin
                 send_to_mqtt
                 begin
@@ -53,9 +53,7 @@ class Sensor_Simulator
                 puts "Trying to restart simulator"
             ensure
                 run_simulator
-            end
-
-
+            end 
         end
     end
 
