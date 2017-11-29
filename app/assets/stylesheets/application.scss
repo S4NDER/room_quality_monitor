@@ -94,3 +94,22 @@ tr td:nth-child(n+3){
   width:1%;
   white-space:nowrap;
 }
+
+body#homepage{
+  div.container{
+    display: table-footer-group;
+    width: 100%;
+    .para{
+      padding-left: 36%;
+      padding-top: 10%;
+      padding-bottom: 10%;
+    }
+    .teal{
+      background: rgba(#009688, 0.603) !important;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+  }
