@@ -7,9 +7,8 @@ App.message = App.cable.subscriptions.create "MqttMessageChannel",
 
   received: (data) ->
     console.log(data.device_message)
-
-    dev_id = document.getElementById(data.device_message.device_name).getAttribute("class");
     
+    dev_id = document.getElementById(data.device_message.device_name).getAttribute("class");
 
     if data.device_message.audio_level isnt undefined
       $('#'+dev_id+'_audio_time').load('/controls '+ '#'+dev_id+'_audio_time')
@@ -26,4 +25,10 @@ App.message = App.cable.subscriptions.create "MqttMessageChannel",
     if data.device_message.humidity isnt undefined
       $('#'+dev_id+'_humidity_time').load('/controls '+ '#'+dev_id+'_humidity_time')
       document.getElementById(dev_id+'_humidity').innerHTML = data.device_message.humidity
+    
+    
+
+
+
+    
       
