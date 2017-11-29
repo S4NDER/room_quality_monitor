@@ -8,7 +8,8 @@ App.message = App.cable.subscriptions.create "MqttMessageChannel",
   received: (data) ->
     console.log(data.device_message)
 
-    dev_id = data.device_message.device_name.match(/(\d+)/g)
+    dev_id = document.getElementById(data.device_message.device_name).getAttribute("class");
+    
 
     if data.device_message.audio_level isnt undefined
       $('#'+dev_id+'_audio_time').load('/controls '+ '#'+dev_id+'_audio_time')
