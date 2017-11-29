@@ -60,7 +60,11 @@ $(document).on('turbolinks:load', function() {
         var temp=[];
       
       
-        for(var i = data.length-1; temp_time >= time_1hour_ago; i--){    
+        for(var i = data.length-1; temp_time >= time_1hour_ago; i--){  
+          console.log(`i is ${i}`);
+          if(i <= 0){
+            break;
+          }
           temp[j]=data[i];
           var d = new Date(data[i].created_at);
           temp_time = d.getTime()
