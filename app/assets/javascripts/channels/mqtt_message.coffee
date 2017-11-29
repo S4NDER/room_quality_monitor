@@ -19,14 +19,24 @@ App.message = App.cable.subscriptions.create "MqttMessageChannel",
     #document.getElementById(dev_id+'_humidity').innerHTML = 'Humidity: '+data.device_message.humidity + ' %'
 
     if data.device_message.audio_level isnt undefined
-      console.log ('not undef')
-      document.getElementById(dev_id+'_audio').innerHTML = 'Audio: '+data.device_message.audio_level+' dB'
+      console.log ('not undef audio')
+      document.getElementById(dev_id+'_audio').innerHTML = data.device_message.audio_level
+      $('#'+dev_id+'_audio_time').load('/controls '+ '#'+dev_id+'_audio_time')
 
-    else if data.device_message.temp_raw isnt undefined
-      document.getElementById(dev_id+'_temperature').innerHTML = 'Temperature: '+data.device_message.temp_raw+' °C'
+    if data.device_message.temp_raw isnt undefined
+      console.log ('not undef temp')
+      document.getElementById(dev_id+'_temperature').innerHTML = data.device_message.temp_raw
+      $('#'+dev_id+'_temperature_time').load('/controls '+ '#'+dev_id+'_temperature_time')
+      
 
-    else if data.device_message.luminosity isnt undefined
-      document.getElementById(dev_id+'_luminosity').innerHTML = 'Luminosity: '+data.device_message.luminosity +' lux'
+    if data.device_message.luminosity isnt undefined
+      console.log ('not undef lum')
+      document.getElementById(dev_id+'_luminosity').innerHTML = data.device_message.luminosity
+      $('#'+dev_id+'_luminosity_time').load('/controls '+ '#'+dev_id+'_luminosity_time')
 
-    else if data.device_message.humidity isnt undefined
-      document.getElementById(dev_id+'_humidity').innerHTML = 'Humidity: '+data.device_message.humidity + ' %'
+
+    if data.device_message.humidity isnt undefined
+      console.log ('not undef humid')
+      document.getElementById(dev_id+'_humidity').innerHTML = data.device_message.humidity
+      $('#'+dev_id+'_humidity_time').load('/controls '+ '#'+dev_id+'_humidity_time')
+
