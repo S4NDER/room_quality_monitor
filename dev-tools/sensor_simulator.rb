@@ -87,11 +87,11 @@ class Sensor_Simulator
 
         hash =  {}
 
-        hash["audio_level"] = get_random_dB if (random_value / 1) % 2 == 0
-        hash["temp_raw"] = get_random_temperature if (random_value / 2) % 2 == 0
-        hash["humidity"] = get_random_humidity if (random_value / 4) % 2 == 0
-        hash["luminosity"] = get_random_luminosity if (random_value / 8) % 2 == 0
-        hash["device_name"] = get_random_device_name
+        hash["audio"] = get_random_dB if (random_value / 1) % 2 == 0
+        hash["temp"] = get_random_temperature if (random_value / 2) % 2 == 0
+        hash["hum"] = get_random_humidity if (random_value / 4) % 2 == 0
+        hash["lum"] = get_random_luminosity if (random_value / 8) % 2 == 0
+        hash["dev"] = get_random_device_name
 
         return hash
     end
