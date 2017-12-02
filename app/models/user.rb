@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  # Assign devices to users
+  has_many :devices
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
