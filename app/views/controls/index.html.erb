@@ -46,6 +46,15 @@
                                 <span class="data-type-unit">%</span>
                                 <span class="data-type-time">(<%=((device.humidities.last&.created_at)).try(:strftime, "%H:%M:%S")%>)</span>
                             </span>
+                            </br> 
+
+                            <a class="edit_data btn orange show_chart modal-trigger" data-device-id="<%=device.id %>" data-device-type="barometer" href="#modal1"><i class="material-icons ">show_chart</i></a>                           
+                            <span class="devicedata" id="<%=device.id %>_barometer">
+                                <span class="data-type-title">Barometer:</span>
+                                <span class="data-type-value"><%=device.barometers.last&.value %></span>
+                                <span class="data-type-unit">Pa</span>
+                                <span class="data-type-time">(<%=((device.barometers.last&.created_at)).try(:strftime, "%H:%M:%S")%>)</span>
+                            </span>
                         </span>
                     </div>
                 </div>

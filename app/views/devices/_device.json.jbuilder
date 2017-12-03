@@ -19,3 +19,8 @@ json.humidities(device.humidities) do |humidity|
     json.value humidity.value
     json.created_at humidity.created_at
 end
+
+json.barometers(device.barometers) do |barometer|
+    json.value barometer.value
+    json.created_at barometer.created_at
+end

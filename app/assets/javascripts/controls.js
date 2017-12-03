@@ -21,7 +21,12 @@ $(document).on('turbolinks:load', function() {
               ytitle= "Temperature (°C)";
               data_1h = get_value_by_hour_limit(data.temperatures);
               break;
-            
+
+            case "barometer":
+              ytitle= "Barometric pressure (Pa)";
+              data_1h = get_value_by_hour_limit(data.barometers);
+            break;
+
             case "humidity":
               ytitle= "Humidity (%)";
               data_1h = get_value_by_hour_limit(data.humidities);
