@@ -7,31 +7,11 @@ App.message = App.cable.subscriptions.create "MqttMessageChannel",
 
   received: (data) ->
     console.log(data.device_message)
-    
 
-    if document.getElementById(data.device_message.device_name) isnt null or undefined
-      dev_id = document.getElementById(data.device_message.device_name).getAttribute("class");
+    if document.getElementById(data.device_message.dev) isnt null or undefined
+      dev_id = document.getElementById(data.device_message.dev).getAttribute("class");
 
-      if data.device_message.audio_level isnt undefined
-        $('#'+dev_id+'_audio_time').load('/controls '+ '#'+dev_id+'_audio_time')
-        document.getElementById(dev_id+'_audio').innerHTML = data.device_message.audio_level
-        
-      if data.device_message.temp_raw isnt undefined
-        $('#'+dev_id+'_temperature_time').load('/controls '+ '#'+dev_id+'_temperature_time')
-        document.getElementById(dev_id+'_temperature').innerHTML = data.device_message.temp_raw
-
-      if data.device_message.luminosity isnt undefined
-        $('#'+dev_id+'_luminosity_time').load('/controls '+ '#'+dev_id+'_luminosity_time')
-        document.getElementById(dev_id+'_luminosity').innerHTML = data.device_message.luminosity
-
-      if data.device_message.humidity isnt undefined
-        $('#'+dev_id+'_humidity_time').load('/controls '+ '#'+dev_id+'_humidity_time')
-        document.getElementById(dev_id+'_humidity').innerHTML = data.device_message.humidity
-
-    
-    
-
-
-
-    
-      
+      $('#'+dev_id+'_audio').load('/controls '+ '#'+dev_id+'_audio')  
+      $('#'+dev_id+'_temperature').load('/controls '+ '#'+dev_id+'_temperature')
+      $('#'+dev_id+'_luminosity').load('/controls '+ '#'+dev_id+'_luminosity')
+      $('#'+dev_id+'_humidity').load('/controls '+ '#'+dev_id+'_humidity')
