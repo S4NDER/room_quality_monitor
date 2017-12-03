@@ -11,18 +11,41 @@
                     <div class="z-depth-4">
                     <div class="card-panel teal">
                         <span class="white-text">
-                            <h5><b><%=device.device_name %></b></h5></br>                            
+                            <h5><b id="<%=device.device_name %>" class="<%=device.id%>"><%=device.device_name %></b></h5></br>                            
                             <a class="edit_data btn orange show_chart modal-trigger" data-device-id="<%=device.id %>" data-device-type="audio" href="#modal1"><i class="material-icons ">show_chart</i></a>
-                            Audio: <%=device.audios.last.value %> dB              (<%=((device.audios.last.created_at)+ 60.minutes).strftime("%H:%M:%S")%>)</br>     
+                            <span class="devicedata" id="<%=device.id %>_audio">
+                                <span class="data-type-title">Audio:</span>
+                                <span class="data-type-value"><%=device.audios.last&.value %></span>
+                                <span class="data-type-unit">db</span>
+                                <span class="data-type-time">(<%=((device.audios.last&.created_at)).try(:strftime, "%H:%M:%S")%>)</span>
+                            </span>
+                            </br>           
 
                             <a class="edit_data btn orange show_chart modal-trigger" data-device-id="<%=device.id %>" data-device-type="temperature" href="#modal1"><i class="material-icons ">show_chart</i></a>
-                            Temperature: <%=device.temperatures.last.value %> °C  (<%=((device.temperatures.last.created_at)+ 60.minutes).strftime("%H:%M:%S")%>)</br>
-                            
+                            <span class="devicedata" id="<%=device.id %>_temperature">
+                                <span class="data-type-title">Temperature:</span>
+                                <span class="data-type-value"><%=device.temperatures.last&.value %></span>
+                                <span class="data-type-unit">°C</span>
+                                <span class="data-type-time">(<%=((device.temperatures.last&.created_at)).try(:strftime, "%H:%M:%S")%>)</span>
+                                </span>
+                            </br>           
+    
                             <a class="edit_data btn orange show_chart modal-trigger" data-device-id="<%=device.id %>" data-device-type="luminosity" href="#modal1"><i class="material-icons ">show_chart</i></a>
-                            Luminosity:  <%=device.luminosities.last.value %> lux (<%=((device.luminosities.last.created_at)+ 60.minutes).strftime("%H:%M:%S")%>)</br>
+                            <span class="devicedata" id="<%=device.id %>_luminosity">
+                                <span class="data-type-title">Luminosity:</span>
+                                <span class="data-type-value"><%=device.luminosities.last&.value %></span>
+                                <span class="data-type-unit">lux</span>
+                                <span class="data-type-time">(<%=((device.luminosities.last&.created_at)).try(:strftime, "%H:%M:%S")%>)</span>
+                            </span>
+                            </br>           
                             
                             <a class="edit_data btn orange show_chart modal-trigger" data-device-id="<%=device.id %>" data-device-type="humidity" href="#modal1"><i class="material-icons ">show_chart</i></a>                           
-                            Humidity:    <%=device.humidities.last.value %> %     (<%=((device.humidities.last.created_at)+ 60.minutes).strftime("%H:%M:%S")%>)</br>
+                            <span class="devicedata" id="<%=device.id %>_humidity">
+                                <span class="data-type-title">Humidity:</span>
+                                <span class="data-type-value"><%=device.humidities.last&.value %></span>
+                                <span class="data-type-unit">%</span>
+                                <span class="data-type-time">(<%=((device.humidities.last&.created_at)).try(:strftime, "%H:%M:%S")%>)</span>
+                            </span>
                         </span>
                     </div>
                 </div>
@@ -32,9 +55,11 @@
     </div>
 </div>
 
+
 <div id="modal1" class="modal">
     <div class="modal-content">
         <h4 id="device_name">Modal Header</h4>
         <div id="chart-1" style="height: 300px"></div>
+        
     </div>
 </div>
