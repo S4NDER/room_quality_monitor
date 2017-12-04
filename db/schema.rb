@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120080842) do
+ActiveRecord::Schema.define(version: 20171203130054) do
 
   create_table "adminpages", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 20171120080842) do
   end
 
   create_table "audios", force: :cascade do |t|
+    t.float "value"
+    t.integer "device_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "barometers", force: :cascade do |t|
     t.float "value"
     t.integer "device_id"
     t.datetime "created_at", null: false
@@ -34,10 +41,12 @@ ActiveRecord::Schema.define(version: 20171120080842) do
     t.integer "humidity_id"
     t.integer "luminosity_id"
     t.integer "temperature_id"
+    t.integer "barometer_id"
     t.string "device_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["audio_id"], name: "index_devices_on_audio_id"
+    t.index ["barometer_id"], name: "index_devices_on_barometer_id"
     t.index ["humidity_id"], name: "index_devices_on_humidity_id"
     t.index ["luminosity_id"], name: "index_devices_on_luminosity_id"
     t.index ["temperature_id"], name: "index_devices_on_temperature_id"

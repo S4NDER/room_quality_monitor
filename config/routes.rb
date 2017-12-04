@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :barometers
   resources :adminpages
   resources :chart_by_device_types
   resources :rooms
