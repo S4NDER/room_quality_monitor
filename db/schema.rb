@@ -67,10 +67,8 @@ ActiveRecord::Schema.define(version: 20171203130054) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.integer "device_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["device_id"], name: "index_rooms_on_device_id"
   end
 
   create_table "temperatures", force: :cascade do |t|
