@@ -16,3 +16,13 @@ App.message = App.cable.subscriptions.create "MqttMessageChannel",
       $('#'+dev_id+'_luminosity').load('/controls '+ '#'+dev_id+'_luminosity')
       $('#'+dev_id+'_humidity').load('/controls '+ '#'+dev_id+'_humidity')
       $('#'+dev_id+'_barometer').load('/controls '+ '#'+dev_id+'_barometer')
+    else if document.getElementById(data.device_message.dev_id) isnt null or undefined
+      dev_id = document.getElementById(data.device_message.dev_id).getAttribute("class");
+
+      $('#'+dev_id+'_audio').load('/controls '+ '#'+dev_id+'_audio')
+      $('#'+dev_id+'_temperature').load('/controls '+ '#'+dev_id+'_temperature')
+      $('#'+dev_id+'_luminosity').load('/controls '+ '#'+dev_id+'_luminosity')
+      $('#'+dev_id+'_humidity').load('/controls '+ '#'+dev_id+'_humidity')
+      $('#'+dev_id+'_barometer').load('/controls '+ '#'+dev_id+'_barometer')
+    else
+      location.reload()
